@@ -1,0 +1,21 @@
+D:\server\server\server\bin\Debug\server.exe.config
+D:\server\server\server\bin\Debug\server.exe
+D:\server\server\server\bin\Debug\server.pdb
+D:\server\server\server\obj\Debug\server.csprojAssemblyReference.cache
+D:\server\server\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+D:\server\server\server\obj\Debug\server.exe
+D:\server\server\server\obj\Debug\server.pdb
+C:\Users\y.bems\Desktop\server\server\obj\Debug\server.csprojAssemblyReference.cache
+C:\Users\y.bems\Desktop\server\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+C:\Users\y.bems\Desktop\server\server\obj\Debug\server.exe
+C:\Users\y.bems\Desktop\server\server\obj\Debug\server.pdb
+C:\Users\y.bems\Desktop\server\server\bin\Debug\server.exe.config
+C:\Users\y.bems\Desktop\server\server\bin\Debug\server.exe
+C:\Users\y.bems\Desktop\server\server\bin\Debug\server.pdb
+C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\server\server\bin\Debug\server.exe.config
+C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\server\server\bin\Debug\server.exe
+C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\server\server\bin\Debug\server.pdb
+C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\server\server\obj\Debug\server.csprojAssemblyReference.cache
+C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\server\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\server\server\obj\Debug\server.exe
+C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\server\server\obj\Debug\server.pdb
