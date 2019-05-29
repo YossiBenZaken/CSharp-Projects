@@ -13,16 +13,24 @@ namespace client
         {
             InitializeComponent();
         }
-
+        int id;
+        IPAddress addressserver;
+        Int32 port;
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-        int id;
-        Int32 port = 13000;
-        IPAddress addressserver = IPAddress.Parse("127.0.0.1");
+        private void Connect()
+        {
+            if (IPAddressText.Text != "" && PortText.Text != "")
+            {
+                addressserver = System.Net.IPAddress.Parse(IPAddressText.Text);
+                port = int.Parse(PortText.Text);
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
+            Connect();
             if (comboBox1.SelectedIndex == 0)
             {
                 try
@@ -40,10 +48,12 @@ namespace client
                     int bytes = stream.Read(data, 0, data.Length);
                     messagefromserver = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
                     string[] str = messagefromserver.Split('#');
-                    listBox1.Items.Clear();
-                    for (int i = 0; i < str.Length; i++)
+                    listView1.Items.Clear();
+                    for (int i = 0; i < str.Length-1; i++)
                     {
-                        listBox1.Items.Add(str[i].Replace('$', ' '));
+                        string[] str2 = str[i].Split('$');
+                        ListViewItem item = new ListViewItem(new[]{ str2[0],str2[1],str2[2] });
+                        listView1.Items.Add(item);
                     }
 
                     stream.Close();
@@ -71,10 +81,12 @@ namespace client
                     int bytes = stream.Read(data, 0, data.Length);
                     messagefromserver = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
                     string[] str = messagefromserver.Split('#');
-                    listBox1.Items.Clear();
-                    for (int i = 0; i < str.Length; i++)
+                    listView1.Items.Clear();
+                    for (int i = 0; i < str.Length-1; i++)
                     {
-                        listBox1.Items.Add(str[i].Replace('$', ' '));
+                        string[] str2 = str[i].Split('$');
+                        ListViewItem item = new ListViewItem(new[] { str2[0], str2[1], str2[2] });
+                        listView1.Items.Add(item);
                     }
 
                     stream.Close();
@@ -91,16 +103,9 @@ namespace client
             }
         }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string[] str = listBox1.SelectedItem.ToString().Split(' ');
-            textBox1.Text = str[2];
-            textBox2.Text = str[1];
-            id = int.Parse(str[0]);
-        }
-
         private void Button2_Click(object sender, EventArgs e)
         {
+            Connect();
             try
             {
                 TcpClient client = new TcpClient(addressserver.ToString(), port);
@@ -122,6 +127,7 @@ namespace client
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            Connect();
             try
             {
                 TcpClient client = new TcpClient(addressserver.ToString(), port);
@@ -143,6 +149,7 @@ namespace client
 
         private void Button4_Click(object sender, EventArgs e)
         {
+            Connect();
             try
             {
                 TcpClient client = new TcpClient(addressserver.ToString(), port);
@@ -164,11 +171,12 @@ namespace client
 
         private void Button5_Click(object sender, EventArgs e)
         {
+            Connect();
             try
             {
                 TcpClient client = new TcpClient(addressserver.ToString(), port);
 
-                string message = "SearchByName#" + nametext.Text + "#";
+                string message = "SearchByName##";
 
                 byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
                 NetworkStream stream = client.GetStream();
@@ -179,10 +187,12 @@ namespace client
                 int bytes = stream.Read(data, 0, data.Length);
                 messagefromserver = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
                 string[] str = messagefromserver.Split('#');
-                listBox1.Items.Clear();
-                for (int i = 0; i < str.Length; i++)
+                listView1.Items.Clear();
+                for (int i = 0; i < str.Length-1; i++)
                 {
-                    listBox1.Items.Add(str[i].Replace('$', ' '));
+                    string[] str2 = str[i].Split('$');
+                    ListViewItem item = new ListViewItem(new[] { str2[0], str2[1], str2[2] });
+                    listView1.Items.Add(item);
                 }
 
                 stream.Close();
@@ -192,6 +202,94 @@ namespace client
             {
                 MessageBox.Show(err.Message);
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Connect();
+            if (comboBox1.SelectedIndex == 0)
+            {
+                try
+                {
+                    TcpClient client = new TcpClient(addressserver.ToString(), port);
+
+                    string message = "SortListName#";
+
+                    byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
+                    NetworkStream stream = client.GetStream();
+                    stream.Write(data, 0, data.Length);
+
+                    string messagefromserver = "";
+                    data = new byte[256];
+                    int bytes = stream.Read(data, 0, data.Length);
+                    messagefromserver = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+                    string[] str = messagefromserver.Split('#');
+                    listView1.Items.Clear();
+                    for (int i = 0; i < str.Length-1; i++)
+                    {
+                        string[] str2 = str[i].Split('$');
+                        ListViewItem item = new ListViewItem(new[] { str2[0], str2[1], str2[2] });
+                        listView1.Items.Add(item);
+                    }
+
+                    stream.Close();
+                    client.Close();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                try
+                {
+                    TcpClient client = new TcpClient(addressserver.ToString(), port);
+
+                    string message = "SortListPhone#";
+
+                    byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
+                    NetworkStream stream = client.GetStream();
+                    stream.Write(data, 0, data.Length);
+
+                    string messagefromserver = "";
+                    data = new byte[256];
+                    int bytes = stream.Read(data, 0, data.Length);
+                    messagefromserver = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+                    string[] str = messagefromserver.Split('#');
+                    listView1.Items.Clear();
+                    for (int i = 0; i < str.Length-1; i++)
+                    {
+                        string[] str2 = str[i].Split('$');
+                        ListViewItem item = new ListViewItem(new[] { str2[0], str2[1], str2[2] });
+                        listView1.Items.Add(item);
+                    }
+
+                    stream.Close();
+                    client.Close();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select from combo box!");
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListViewItem index = listView1.SelectedItems[0];
+            textBox1.Text = index.SubItems[2].Text;
+            textBox2.Text = index.SubItems[1].Text;
+            id = int.Parse(index.SubItems[0].Text);
         }
     }
 }

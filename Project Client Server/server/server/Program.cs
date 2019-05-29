@@ -29,8 +29,40 @@ namespace server
                 case "UpdateContact":
                     UpdateContact(int.Parse(str[1]), str[2],str[3]);
                     break;
+                case "SortListName":
+                    return SortListName();
+                case "SortListPhone":
+                    return SortListPhone();
             }
             return null;
+        }
+        public static string SortListPhone()
+        {
+            string str = "";
+            conn.Open();
+            cmd = new OleDbCommand("Select * from PhoneBook order by number_phone", conn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                str += dr[0] + "$" + dr[1] + "$" + dr[2] + "$#";
+            }
+            dr.Close();
+            conn.Close();
+            return str;
+        }
+        public static string SortListName()
+        {
+            string str = "";
+            conn.Open();
+            cmd = new OleDbCommand("Select * from PhoneBook order by fname", conn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                str += dr[0] + "$" + dr[1] + "$" + dr[2] + "$#";
+            }
+            dr.Close();
+            conn.Close();
+            return str;
         }
         public static void UpdateContact(int id,string name, string phone)
         {
@@ -57,11 +89,11 @@ namespace server
         {
             string str = "";
             conn.Open();
-            cmd = new OleDbCommand("Select * from PhoneBook where fname like '" + name + "%'", conn);
+            cmd = new OleDbCommand("Select * from Phonebook where fname like '" + name + "%'", conn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                str += dr[0] + "$" + dr[1] + "$" + dr[2] + "#";
+                str += dr[0] + "$" + dr[1] + "$" + dr[2] + "$#";
             }
             dr.Close();
             conn.Close();
@@ -75,7 +107,7 @@ namespace server
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                str += dr[0] + "$" + dr[1] + "$" + dr[2] + "#";
+                str += dr[0] + "$" + dr[1] + "$" + dr[2] + "$#";
             }
             dr.Close();
             conn.Close();

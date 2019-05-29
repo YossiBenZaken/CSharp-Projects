@@ -38,3 +38,13 @@ C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\client\client\obj\D
 C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\client\client\obj\Debug\client.csproj.CoreCompileInputs.cache
 C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\client\client\obj\Debug\client.exe
 C:\Users\yossi\OneDrive\C#\סמסטר ב\עבודת הגשה\client\client\obj\Debug\client.pdb
+C:\Users\y.bems\Desktop\Project Client Server\client\client\bin\Debug\client.exe.config
+C:\Users\y.bems\Desktop\Project Client Server\client\client\bin\Debug\client.exe
+C:\Users\y.bems\Desktop\Project Client Server\client\client\bin\Debug\client.pdb
+C:\Users\y.bems\Desktop\Project Client Server\client\client\obj\Debug\client.csprojAssemblyReference.cache
+C:\Users\y.bems\Desktop\Project Client Server\client\client\obj\Debug\client.Form1.resources
+C:\Users\y.bems\Desktop\Project Client Server\client\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\y.bems\Desktop\Project Client Server\client\client\obj\Debug\client.csproj.GenerateResource.cache
+C:\Users\y.bems\Desktop\Project Client Server\client\client\obj\Debug\client.csproj.CoreCompileInputs.cache
+C:\Users\y.bems\Desktop\Project Client Server\client\client\obj\Debug\client.exe
+C:\Users\y.bems\Desktop\Project Client Server\client\client\obj\Debug\client.pdb
